@@ -2,10 +2,46 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Hero from "../components/landing/Hero.astro";
 import Products from "../components/landing/Products.astro";
-
+import BackgroundImage from "../components/BackgroundImage.astro";
+import Image from "../assets/Background.png";
+import FondoCafe from "../assets/fondo.jpg";
 ---
 
 <BaseLayout>
-  <Hero />
-  <Products />
+  <BackgroundImage src={Image} className="opacity-75 backdrop-opacity-75">
+    <div class='w-screen h-screen'>
+      <div class='flex items-center justify-center h-full'>
+        <h1 class='text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-[#3f2b24] lora-text px-4 md:px-8 lg:px-16 text-center leading-tight md:leading-snug'>
+          <span class='block'>Café con alma de arena</span>
+          <span class='block'>y viento.</span>
+        </h1>
+      </div>
+    </div>
+  </BackgroundImage>
+  <BackgroundImage>
+    <Hero />
+  </BackgroundImage>
+  <BackgroundImage className="mt-25 opacity-75 backdrop-opacity-75" src={FondoCafe}>
+    <Products />
+</BackgroundImage>
 </BaseLayout>
+
+<style>
+.lora-titles {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  letter-spacing: -0.02em;
+  word-spacing: -0.25em;
+}
+
+.lora-text {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.1em;
+  word-spacing: 0.25em;
+}
+</style>

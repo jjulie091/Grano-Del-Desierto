@@ -1,5 +1,6 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
+import NavBar from "../components/landing/NavBar.vue";
 import Footer from "../components/global/Footer.astro";
 ---
 
@@ -7,9 +8,11 @@ import Footer from "../components/global/Footer.astro";
   <head>
     <BaseHead />
   </head>
-
-  <body class="bg-charcoal-500">
+  
+  <body style="background-color: rgb(222, 198, 172);" class="">
+    <NavBar client:load/>
     <slot />
-<Footer/>
+    <div class="py-20"></div>
+    <Footer/>
   </body>
 </html>

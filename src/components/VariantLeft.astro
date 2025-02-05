@@ -1,0 +1,80 @@
+---
+// components/HeroSection.astro
+import { Picture } from "astro:assets";
+import defaultImage from "../assets/bagCoffe.jpeg";
+
+interface Props {
+  imageSrc?: ImageMetadata;
+  imageAlt?: string;
+  title?: string;
+  description?: string;
+  className?: string;
+}
+
+const {
+  imageSrc = defaultImage,
+  imageAlt = "Imagen decorativa",
+  title = "",
+  description = "",
+  className = ""
+} = Astro.props;
+---
+
+<section class={`overflow-hidden bg-[#dec6ac] sm:grid rounded-3xl sm:grid-cols-2 ${className}`}>
+  <!-- Sección de texto -->
+  <div class="p-8 md:p-12 lg:px-16 lg:py-24">
+    <div class="mx-auto max-w-xl text-center sm:text-left">
+      {title && 
+        <h2 class="text-2xl font-bold lora-titles text-black md:text-3xl">
+          {title}
+        </h2>
+      }
+
+      {description && 
+        <p class="mt-10 text-[#3f2b24] font-black lora-text md:block">
+          {description}
+        </p>
+      }
+
+    <div class="flex justify-center">
+      <button class="bg-[#3f2b24] text-gray-300 custom-hover text-center items-center mt-8 flex justify-center rounded-lg">
+        <span class="m-2">Comprar</span>
+      </button>
+    </div>
+    </div>
+
+  </div>
+
+  <!-- Sección de imagen -->
+  <Picture
+    src={imageSrc}
+    alt={imageAlt}
+    class="h-56 w-full object-cover sm:h-full"
+    sizes="(min-width: 640px) 50vw, 100vw"
+  />
+</section>
+
+<style>
+  .custom-hover:hover {
+  background-color: white;
+  color: #3f2b24;
+}
+  .lora-titles {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: -0.02em;
+    word-spacing: -0.25em;
+  }
+
+  .lora-text {
+    font-family: "Lora", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 0.1em;
+    word-spacing: 0.25em;
+  }
+</style>
+  

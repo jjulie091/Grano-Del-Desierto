@@ -1,0 +1,58 @@
+---
+import Texture from "../assets/texture.svg";
+import {Picture} from "astro:assets";
+
+interface Props {
+    src?: ImageMetadata;
+    alt?: string;
+    className?: string;
+    responsive?: boolean
+    withShadow?: boolean
+    shadowIntensity?: string
+    aspectRatio?: boolean;
+    priority?: boolean;
+}
+
+const {
+    src,
+    alt = 'Background Image',
+    className = '',
+    withShadow,
+    responsive,
+    priority = false,
+    shadowIntensity = '50%',
+    aspectRatio
+}: Props = Astro.props;
+
+const defaultClass = `absolute bg-black inset-0 -z-10 ${className}`;
+---
+<div class:list={[{
+    'w-full h-full': responsive,
+}]} class="relative overflow-hidden ">
+    <slot/>
+    {src ?
+            <div class={defaultClass}>
+                {withShadow && (
+                        <div style={{opacity: shadowIntensity}} class={`absolute inset-0 bg-black opacity-50`}/>
+                )}
+                <Picture
+                        class:list={[{
+                            'md:aspect-video': aspectRatio,
+                            '!h-full': !aspectRatio,
+                        }]}
+                        priority={priority}
+                        class="object-cover w-full"
+                        src={src}
+                        alt={alt}
+                />
+                <div class="absolute inset-0 -z-20">
+
+                </div>
+            </div>
+        :
+            <div class="absolute inset-0 -z-20 opacity-10 bg-[#dec6ac]">
+
+                <Texture height="100%"/>
+            </div>
+    }
+</div>
