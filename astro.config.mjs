@@ -8,6 +8,8 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   // Add your domain here
-   site: 'https://lexingtonthemes.com',
-  integrations: [sitemap(), vue()]
+   site: 'https://github.com/jjulie091/Grano-Del-Desierto',
+  integrations: [sitemap(), vue()],
+  output: 'static', // Asegura que la salida sea estática
+  outDir: 'dist',  // Aquí defines la carpeta de salida
 });
