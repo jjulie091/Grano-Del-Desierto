@@ -54,7 +54,10 @@ const toggleMenu = () => {
           <!-- Logo centrado en móvil -->
           <div class="flex flex-1 justify-center sm:justify-start">
             <div class="flex items-center">
-              <img class="h-14 w-auto" :src="imageSrc.src" alt="Logo" />
+              <picture>
+                <source :srcset="imageSrc.src" type="image/webp" />
+                <img class="h-15 w-auto" :src="imageSrc.src" alt="Logo" width="56" height="56" />
+              </picture>
               <!-- Texto solo visible en desktop -->
               <span class="hidden sm:block lora-text text-3xl text-white ml-4">
                 Grano del Desierto
@@ -122,6 +125,7 @@ const toggleMenu = () => {
 }
 
 .lora-text {
+  font-display: swap;
   font-family: "Lora", serif;
   font-optical-sizing: auto;
   font-weight: 700;
