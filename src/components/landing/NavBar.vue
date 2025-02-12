@@ -56,7 +56,7 @@ const toggleMenu = () => {
             <div class="flex items-center">
               <picture>
                 <source :srcset="imageSrc.src" type="image/webp" />
-                <img class="h-15 w-auto" :src="imageSrc.src" alt="Logo" width="56" height="56" />
+                <img class=" w-10 h-10 " :src="imageSrc.src" alt="Logo"  />
               </picture>
               <!-- Texto solo visible en desktop -->
               <span class="hidden sm:block lora-text text-3xl text-white ml-4">

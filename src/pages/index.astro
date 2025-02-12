@@ -8,7 +8,7 @@ import FondoCafe from "../assets/fondo.jpg";
 ---
 
 <BaseLayout>
-  <BackgroundImage src={Image} className="opacity-75 backdrop-opacity-75">
+  <BackgroundImage src={Image} className="opacity-75 backdrop-opacity-75 xsm:max-w-[800px]">
     <div class='w-screen h-screen'>
       <div class='flex items-center justify-center h-full'>
         <h1 class='text-4xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl font-bold text-[#3f2b24] lora-text px-4 md:px-8 lg:px-16 text-center leading-tight md:leading-snug'>
@@ -21,7 +21,7 @@ import FondoCafe from "../assets/fondo.jpg";
   <BackgroundImage>
     <Hero />
   </BackgroundImage>
-  <BackgroundImage className="mt-25 opacity-75 backdrop-opacity-75" src={FondoCafe}>
+  <BackgroundImage className="mt-25 opacity-75 backdrop-opacity-75 object-cover w-screen h-full" src={FondoCafe}>
     <Products />
 </BackgroundImage>
 </BaseLayout>
